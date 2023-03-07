@@ -1,35 +1,51 @@
 <div class="courses-containers">
     <div class="courses-list">
         <mat-card>
-        <mat-card-header>
-            <mat-card-title>
-            Course List
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-
-            <!-- COURSES LIST -->
-
-        </mat-card-content>
+            <mat-card-header>
+                <mat-card-title> Course List </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item
+                        *ngFor="let course of courses"
+                        (click)="selectCourse(course)">
+                        <h3 matLine>{{ course.title | titlecase }}</h3>
+                        <p matLine>
+                            {{ course.description }}
+                        </p>
+                        <button
+                            mat-icon-button
+                            color="warn"
+                            (click)="
+                                deleteCourse(course.id);
+                                $event.stopImmediatePropagation()
+                            ">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
         </mat-card>
     </div>
 
     <div class="course-details">
         <mat-card>
             <mat-card-header>
-                <mat-card-title>
-                    Select Course
+                <mat-card-title
+                    ><span *ngIf="selectedCourse.id; else elseBlock">
+                        {{ selectedCourse.title | titlecase }}
+                    </span>
+                    <ng-template #elseBlock> No Course Selected </ng-template>
                 </mat-card-title>
             </mat-card-header>
             <mat-card-content>
-            
-            <!-- COURSE FORM -->
-
+                <pre>{{ selectedCourse | json }}</pre>
             </mat-card-content>
             <mat-card-actions>
-
-            <!-- COURSE ACTIONS -->
-
+                <!-- COURSE ACTIONS -->
+                <button type="button" mat-button (click)="selectCourse(null)">
+                    Cancel
+                </button>
             </mat-card-actions>
         </mat-card>
     </div>

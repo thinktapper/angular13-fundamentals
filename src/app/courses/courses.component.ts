@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.scss']
+  styleUrls: ['./courses.component.scss'],
 })
 export class CoursesComponent implements OnInit {
   courses = [
@@ -12,13 +12,28 @@ export class CoursesComponent implements OnInit {
       title: 'Angular 13 Fundamentals',
       description: 'Learn the fundamentals of Angular 13',
       percentComplete: 26,
-      favorite: true
-    }
-  ];
+      favorite: true,
+    },
+    {
+      id: 2,
+      title: 'JavaScript: Understanding the Weird Parts',
+      description:
+        'Learn the JavaScript like a pro! Understand the weird parts of JavaScript with Will.',
+      percentComplete: 26,
+      favorite: true,
+    },
+  ]
+  selectedCourse = null
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  selectCourse(course) {
+    this.selectedCourse = course
   }
 
+  deleteCourse(courseId) {
+    console.log('delete course', courseId)
+  }
 }
