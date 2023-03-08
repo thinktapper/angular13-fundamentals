@@ -1,11 +1,38 @@
 {
   "courses": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Angular 13 Fundamentals",
       "description": "Learn the fundamentals of Angular 13",
       "percentComplete": 26,
       "favorite": true
+    },
+    {
+      "id": "2",
+      "title": "JavaScript: Understanding the Weird Parts",
+      "description": "Learn the JavaScript like a pro! Understand the weird parts of JavaScript with Will.",
+      "percentComplete": 98,
+      "favorite": true
+    },
+    {
+      "id": "3",
+      "title": "Rapid API Development with Node.js",
+      "description": "Learn how to build a Node.js API in 1 hour. Build a RESTful API with Node.js, Express, and MongoDB.",
+      "percentComplete": 15,
+      "favorite": true
+    },
+    {
+      "id": "w_rx26Y",
+      "title": "New Course",
+      "description": "Super Hola",
+      "percentComplete": 0,
+      "favorite": true
+    }
+  ],
+  "lessons": [
+    {
+      "id": "1",
+      "title": "Component driven architecture"
     }
   ]
 }
