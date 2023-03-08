@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core'
+import { Course } from '../common/models/course'
+
+const emptyCourse: Course = {
+  id: null,
+  title: '',
+  description: '',
+  percentComplete: 0,
+  favorite: false,
+}
 
 @Component({
   selector: 'app-courses',
@@ -19,21 +28,31 @@ export class CoursesComponent implements OnInit {
       title: 'JavaScript: Understanding the Weird Parts',
       description:
         'Learn the JavaScript like a pro! Understand the weird parts of JavaScript with Will.',
-      percentComplete: 26,
+      percentComplete: 98,
       favorite: true,
     },
   ]
-  selectedCourse = null
+  selectedCourse = emptyCourse
+  originalTitle = ''
 
   constructor() {}
 
   ngOnInit(): void {}
 
   selectCourse(course) {
-    this.selectedCourse = course
+    this.selectedCourse = { ...course }
+    this.originalTitle = course.title
+  }
+
+  saveCourse(course) {
+    console.log('save course', course)
   }
 
   deleteCourse(courseId) {
     console.log('delete course', courseId)
+  }
+
+  reset() {
+    this.selectCourse({ ...emptyCourse })
   }
 }
